@@ -1,0 +1,48 @@
+apiVersion: v1
+items:
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    labels:
+      run: testservice
+    name: testservice
+    namespace: clout-test
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        run: testservice
+    template:
+      metadata:
+        labels:
+          run: testservice
+      spec:
+        containers:
+        - image: devincf/microservices:testservice-0.1.0
+          name: testservice
+          imagePullPolicy: Always
+        imagePullSecrets:
+        - name: regcred
+        restartPolicy: Always
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: testservice
+  name: testservice
+  namespace: clout-test
+spec:
+  ports:
+  - nodePort: 30101
+    port: 9080
+    protocol: TCP
+    targetPort: 9080
+  selector:
+    run: testservice
+  sessionAffinity: None
+  type: NodePort
