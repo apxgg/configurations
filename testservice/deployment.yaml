@@ -18,11 +18,11 @@ items:
           run: testservice
       spec:
         containers:
-        - image: devincf/microservices:testservice-0.1.0
+        - image: kworker1:30001/testservice:0.1.0
           name: testservice
           imagePullPolicy: Always
         imagePullSecrets:
-        - name: regcred
+        - name: private-regcred
         restartPolicy: Always
 kind: List
 metadata:
