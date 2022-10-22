@@ -1,5 +1,5 @@
 name: "testservice"
-env: testing
+environment: testing
 address: "https://kubernetes.default.svc"
 values: |
   replicaCount: 2
