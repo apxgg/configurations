@@ -1,5 +1,5 @@
 name: "testservice"
-env: staging
+env: testing
 address: "https://kubernetes.default.svc"
 values: |
   replicaCount: 1
