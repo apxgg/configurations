@@ -1,0 +1,5 @@
+name: "example-go-project"
+env: testing
+address: "https://kubernetes.default.svc"
+values: |
+  replicaCount: 2
