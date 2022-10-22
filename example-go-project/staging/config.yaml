@@ -1,5 +1,0 @@
-name: "example-go-project"
-env: staging
-address: "https://kubernetes.default.svc"
-values: |
-  replicaCount: 2
